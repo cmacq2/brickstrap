@@ -330,7 +330,6 @@ $(${CHROOTCMD} cat ${EXCLUDE_LIST})"
     fi
 }
 
-
 function create-image() {
     info "Creating image file..."
     debug "TARBALL: ${TARBALL}"
@@ -340,21 +339,21 @@ function create-image() {
     [ -z ${FORCE} ] && [ -f ${IMAGE} ] && \
         fail "${IMAGE} already exists. Use -f option to overwrite."
 
-    guestfish -N bootroot:vfat:ext4:${IMAGE_FILE_SIZE}:48M:mbr \
-         part-set-mbr-id /dev/sda 1 0x0b : \
-         set-label /dev/sda2 EV3_FILESYS : \
-         mount /dev/sda2 / : \
-         tar-in ${TARBALL} / : \
-         mkdir-p /media/mmc_p1 : \
-         mount /dev/sda1 /media/mmc_p1 : \
-         glob mv /boot/flash/* /media/mmc_p1/ : \
+    guestfish -N ${IMAGE}=disk:${IMAGE_FILE_SIZE} -- \
+        part-init /dev/sda mbr : \
+        part-add /dev/sda primary 2048 100352 : \
+        part-add /dev/sda primary 100353 -1 : \
+        part-set-mbr-id /dev/sda 1 0x0b : \
+        mkfs fat /dev/sda1 : \
+        set-label /dev/sda1 EV3_BOOT : \
+        mkfs ext4 /dev/sda2 : \
+        set-label /dev/sda2 EV3_FILESYS : \
+        mount /dev/sda2 / : \
+        tar-in ${TARBALL} / : \
+        mkdir-p /media/mmc_p1 : \
+        mount /dev/sda1 /media/mmc_p1 : \
+        glob mv /boot/flash/* /media/mmc_p1/ : \
 
-    # Hack to set the volume label on the vfat partition since guestfish does
-    # not know how to do that. Must be null padded to exactly 11 bytes.
-    echo -e -n "EV3_BOOT\0\0\0" | \
-        dd of=test1.img bs=1 seek=32811 count=11 conv=notrunc >/dev/null 2>&1
-
-    mv test1.img ${IMAGE}
 }
 
 function run-shell() {
