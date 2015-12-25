@@ -1,3 +1,6 @@
 libraspberrypi-bin
 libraspberrypi0
 raspberrypi-bootloader
+rpi-mkimage
+flash-kernel
+linux-image-ev3dev-rpi2

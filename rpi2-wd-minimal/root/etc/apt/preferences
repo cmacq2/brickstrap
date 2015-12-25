@@ -16,23 +16,27 @@ Pin-Priority: 100
 
 Package: libraspberrypi-bin
 Pin: release o=ev3dev
-Pin-Priority: 400
+Pin-Priority: 600
 
 Package: libraspberrypi0
 Pin: release o=ev3dev
-Pin-Priority: 400
+Pin-Priority: 600
 
 Package: raspberrypi-bootloader
 Pin: release o=ev3dev
-Pin-Priority: 400
+Pin-Priority: 600
 
 Package: linux-image-ev3dev-rpi2
 Pin: release o=ev3dev
-Pin-Priority: 400
+Pin-Priority: 600
 
 Package: flash-kernel
 Pin: release o=ev3dev
-Pin-Priority: 400
+Pin-Priority: 600
+
+Package: rpi-mkimage
+Pin: release o=ev3dev
+Pin-Priority: 600
 
 Package: *
 Pin: release o=ev3dev
