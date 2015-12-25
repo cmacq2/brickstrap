@@ -1,0 +1,3 @@
+
+BOARD_HOSTNAME=$(cat "${ROOTDIR}/etc/hostname")
+echo "127.0.0.1	$BOARD_HOSTNAME $BOARD_HOSTNAME.local" >> $ROOTDIR/etc/hosts

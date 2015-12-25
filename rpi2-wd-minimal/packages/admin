@@ -1,0 +1,12 @@
+apt
+aptitude
+#conspy
+dosfstools
+#ev3dev-adduser-config
+kmod
+ntp
+#parted
+gdisk
+procps
+psmisc
+sudo

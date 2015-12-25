@@ -1,0 +1,8 @@
+SUITE="unstable"
+ARCH="armhf"
+DEBIAN_MIRROR=${DEBIAN_MIRROR:-"http://httpredir.debian.org/debian"}
+EV3DEV_MIRROR=${EV3DEV_MIRROR:-"http://ev3dev.org/debian"}
+RASPBIAN_MIRROR=${RASPBIAN_MIRROR:-"http://archive.raspbian.org/raspbian"}
+IMAGE_FILE_SIZE=${IMAGE_FILE_SIZE:-"1800M"}
+EV3DEV_SUITE=testing
+DEBIAN_SUITE=unstable
