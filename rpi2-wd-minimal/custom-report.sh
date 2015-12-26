@@ -7,3 +7,33 @@
 [ -n "$ROOT_PASSWORD" ] && info "Root password: $ROOT_PASSWORD"
 [ -n "$DEFAULT_USER_NAME" ] && info "Default user: $DEFAULT_USER_NAME"
 [ -n "$DEFAULT_USER_PASSWORD" ] && info "Default user password: $DEFAULT_USER_PASSWORD"
+
+# Create changelog
+
+cat > ${IMAGE##$(pwd)/}-release-notes.md << EOF
+Release notes for ${IMAGE##$(pwd)/}
+==============================================
+
+Changes from previous version
+-----------------------------
+
+
+Known issues
+------------
+
+
+Built using
+-----------
+* $(lsb_release -ds)
+* $(dpkg-query --show brickstrap | sed 's/\t/ /')
+* $(dpkg-query --show libguestfs-tools | sed 's/\t/ /')
+* $(dpkg-query --show multistrap | sed 's/\t/ /')
+* $(dpkg-query --show qemu-user-static | sed 's/\t/ /')
+
+Included Packages
+-----------------
+
+\`\`\`
+$($CHROOTCMD dpkg -l)
+\`\`\`
+EOF
