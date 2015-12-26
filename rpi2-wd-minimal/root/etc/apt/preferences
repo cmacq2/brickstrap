@@ -2,6 +2,54 @@
 # Prefer the upstream Debian repositories in all things, except the RPi2 kernel, bootloader and firmware.
 #
 
+Package: libraspberrypi-bin
+Pin: release o=ev3dev
+Pin-Priority: 600
+
+Package: libraspberrypi-bin
+Pin: release o=Debian
+Pin-Priority: -10
+
+Package: libraspberrypi0
+Pin: release o=ev3dev
+Pin-Priority: 600
+
+Package: libraspberrypi0
+Pin: release o=Debian
+Pin-Priority: -10
+
+Package: raspberrypi-bootloader
+Pin: release o=ev3dev
+Pin-Priority: 600
+
+Package: raspberrypi-bootloader
+Pin: release o=Debian
+Pin-Priority: -10
+
+Package: linux-image-ev3dev-rpi2
+Pin: release o=ev3dev
+Pin-Priority: 600
+
+Package: linux-image-ev3dev-rpi2
+Pin: release o=Debian
+Pin-Priority: -10
+
+Package: flash-kernel
+Pin: release o=ev3dev
+Pin-Priority: 600
+
+Package: flash-kernel
+Pin: release o=Debian
+Pin-Priority: -10
+
+Package: rpi-mkimage
+Pin: release o=ev3dev
+Pin-Priority: 600
+
+Package: rpi-mkimage
+Pin: release o=Debian
+Pin-Priority: -10
+
 Package: *
 Pin: release o=Debian,a=unstable
 Pin-Priority: 500
@@ -14,30 +62,6 @@ Package: *
 Pin: release o=Debian
 Pin-Priority: 100
 
-Package: libraspberrypi-bin
-Pin: release o=ev3dev
-Pin-Priority: 600
-
-Package: libraspberrypi0
-Pin: release o=ev3dev
-Pin-Priority: 600
-
-Package: raspberrypi-bootloader
-Pin: release o=ev3dev
-Pin-Priority: 600
-
-Package: linux-image-ev3dev-rpi2
-Pin: release o=ev3dev
-Pin-Priority: 600
-
-Package: flash-kernel
-Pin: release o=ev3dev
-Pin-Priority: 600
-
-Package: rpi-mkimage
-Pin: release o=ev3dev
-Pin-Priority: 600
-
 Package: *
 Pin: release o=ev3dev
-Pin-Priority: 0
+Pin-Priority: 10
