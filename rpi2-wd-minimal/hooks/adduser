@@ -2,9 +2,9 @@
 [ -z "$DEFAULT_USER_NAME" ] && DEFAULT_USER_NAME=robot
 [ -z "$DEFAULT_USER_PASSWORD" ] && DEFAULT_USER_PASSWORD="$(pwgen -sy 10 1)"
 
-$CHROOTCMD adduser --disabled-password --gecos \"\" "$DEFAULT_USER_NAME"
-echo "$DEFAULT_USER_NAME:$DEFAULT_USER_PASSWORD" | $CHROOTCMD chpasswd
-$CHROOTCMD usermod -a -G sudo "$DEFAULT_USER_NAME"
+br_chroot adduser --disabled-password --gecos \"\" "$DEFAULT_USER_NAME"
+echo "$DEFAULT_USER_NAME:$DEFAULT_USER_PASSWORD" | br_chroot chpasswd
+br_chroot usermod -a -G sudo "$DEFAULT_USER_NAME"
 
 [ -z "$ROOT_PASSWORD" ] && ROOT_PASSWORD="$(pwgen -sy 10 1)"
-echo "root:$ROOT_PASSWORD" | $CHROOTCMD chpasswd
+echo "root:$ROOT_PASSWORD" | br_chroot chpasswd
