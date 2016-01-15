@@ -10,8 +10,8 @@
 
 # Create changelog
 
-cat > ${IMAGE##$(pwd)/}-release-notes.md << EOF
-Release notes for ${IMAGE##$(pwd)/}
+cat > "$(br_dest_dir)/$BR_IMAGE_BASE_NAME-release-notes.md" << EOF
+Release notes for $BR_IMAGE_BASE_NAME
 ==============================================
 
 Changes from previous version
