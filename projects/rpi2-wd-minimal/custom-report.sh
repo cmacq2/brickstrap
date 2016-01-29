@@ -10,8 +10,8 @@
 
 # Create changelog
 
-cat > "$(br_dest_dir)/$BR_IMAGE_BASE_NAME-release-notes.md" << EOF
-Release notes for $BR_IMAGE_BASE_NAME
+cat > "$(br_dest_dir)/release-notes.md" << EOF
+Release notes
 ==============================================
 
 Changes from previous version
@@ -34,6 +34,6 @@ Included Packages
 -----------------
 
 \`\`\`
-$($CHROOTCMD dpkg -l)
+$(br_chroot dpkg -l)
 \`\`\`
 EOF
