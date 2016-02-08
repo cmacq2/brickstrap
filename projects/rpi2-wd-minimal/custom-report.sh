@@ -10,7 +10,7 @@
 
 # Create changelog
 
-cat > "$(br_dest_dir)/release-notes.md" << EOF
+cat > "$(br_report_dir)/$(br_image_basename)-release-notes.md" << EOF
 Release notes
 ==============================================
 
